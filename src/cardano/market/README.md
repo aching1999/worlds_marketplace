@@ -17,6 +17,11 @@ Read our [Medium article](https://spacebudz.medium.com/spacebudz-market-71e79d1b
 The contract address:
 **`addr1wyzynye0nksztrfzpsulsq7whr3vgh7uvp0gm4p0x42ckkqqq6kxq`**
 
+### Requirments
+```
+ npm version 6.14 or less is required otherwise compilation error is thrown. Unless node-sass is upgraded to version 5.*
+```
+
 ### 🚀 Quick start
 
 #### Install
@@ -26,6 +31,16 @@ git clone https://github.com/Berry-Pool/spacebudz
 cp -r spacebudz/src/cardano/market .
 cd market
 npm install
+```
+
+#### To luanch a Local dev server
+```
+gatsby develop
+```
+
+#### To Deploy from main branch
+```
+npm run deploy
 ```
 
 #### Run
