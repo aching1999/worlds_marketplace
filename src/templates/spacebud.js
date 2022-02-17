@@ -63,7 +63,8 @@ const SpaceBud = ({ pageContext: { spacebud } }) => {
 
   const POLICY = "3c2cfd4f1ad33678039cfd0347cca8df363c710067d739624218abc0"; // mainnet
   const CONTRACT_ADDRESS =
-    "addr1wyvvtqlx34nu8xkpe86dcznlj9kwgpy97x0zpgqnr782hvcyjjcdh";
+    // "addr1wyvvtqlx34nu8xkpe86dcznlj9kwgpy97x0zpgqnr782hvcyjjcdh";
+    "addr1zyvvtqlx34nu8xkpe86dcznlj9kwgpy97x0zpgqnr782hvlassd377xwhjrwyuqtxsces0ksaev6s7pllvd7hrpfn98q35a5tz"; // This is the staked version of the address above.
 
   const connectedAddresses = React.useRef([]);
 
@@ -613,7 +614,7 @@ const SpaceBud = ({ pageContext: { spacebud } }) => {
                           onClick={() => {
                             if (!connected) return;
                             tradeRef.current.openModal({
-                              minPrice: "70000000",
+                              minPrice: "20000000",
                               type: "OFFER",
                             });
                           }}
@@ -730,7 +731,7 @@ const SpaceBud = ({ pageContext: { spacebud } }) => {
                                       window.BigInt(details.bid.lovelace) +
                                         window.BigInt("10000")
                                     ).toString()
-                                  : "70000000",
+                                  : "20000000",
                                 type: "BID",
                               });
                             }}
