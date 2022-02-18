@@ -178,9 +178,9 @@ const Profile = ({ pageContext: { spacebudz } }) => {
   return (
     <>
       <Metadata
-        titleTwitter="SpaceBudz: Collectible Astronauts"
+        titleTwitter="WorldsWithin: VR Native Cardano"
         title="SpaceBudz | Profile"
-        description="Collect your unique SpaceBud as NFT on the Cardano blockchain."
+        description="VR NFTs on the Cardano blockchain."
       />
       <div
         style={{

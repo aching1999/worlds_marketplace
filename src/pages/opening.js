@@ -190,7 +190,7 @@ const Opening = (props) => {
                     maxWidth: 400,
                   }}
                 >
-                  <b>SpaceBud #{result.id}</b>
+                  <b>WorldsWithin #{result.id}</b>
                   <br /> will be soon reflected in your wallet and on the
                   website.
                 </div>
@@ -238,7 +238,7 @@ const Opening = (props) => {
                   <Button
                     bgcolor="#263238"
                     onClick={() => {
-                      window.open(`/explore/spacebud/${result.id}`);
+                      window.open(`/explore/world/${result.id}`);
                     }}
                   >
                     Details

@@ -15,7 +15,7 @@ import {
 import Icon from "@mdi/react";
 const ShareModal = ({ isOpen, onOpen, onClose, bud }) => {
   const { hasCopied, onCopy } = useClipboard(
-    `https://spacebudz.io/explore/spacebud/${bud.id}`
+    `https://spacebudz.io/explore/world/${bud.id}`
   );
   return (
     <Modal isOpen={isOpen} onClose={onClose} isCentered size="sm">
@@ -25,7 +25,7 @@ const ShareModal = ({ isOpen, onOpen, onClose, bud }) => {
           Share
         </ModalHeader>
         <Box textAlign="center" mt="-2" color="GrayText">
-          SPACEBUD #{bud.id}
+          WORLD #{bud.id}
         </Box>
         <Box h={6} />
         <ModalBody display="flex" alignItems="center" justifyContent="center">

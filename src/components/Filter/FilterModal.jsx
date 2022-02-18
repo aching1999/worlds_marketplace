@@ -24,24 +24,8 @@ import "./FilterModal.css";
 
 const COUNT_MAP = {
   types: {
-    Frog: 523,
-    Alien: 1088,
-    Ape: 1114,
-    Tiger: 845,
-    Robot: 980,
-    Dog: 1188,
-    Bear: 799,
-    Cat: 1191,
-    Parrot: 545,
-    Arcane: 602,
-    Lion: 553,
-    Elephant: 62,
-    Shark: 198,
-    Rhino: 100,
-    Bull: 22,
-    Fish: 83,
-    Wolf: 99,
-    Dino: 8,
+    Inner_World: 6438,
+    Outer_World: 6562,
   },
   gadgets: {
     "Star Suit": 1820,
@@ -90,7 +74,7 @@ const FilterModal = ({ isOpen, onOpen, onClose }) => {
   const [types, setTypes] = React.useState({});
   const [gadgets, setGadgets] = React.useState({});
   const [sliderGadgets, setSliderGadgets] = React.useState("Any");
-  const [sliderId, setSliderId] = React.useState([0, 9999]);
+  const [sliderId, setSliderId] = React.useState([1, 13000]);
 
   React.useEffect(() => {
     if (!isOpen) return;
@@ -183,24 +167,8 @@ const FilterModal = ({ isOpen, onOpen, onClose }) => {
             <Box h={5} />
             <Grid.Container gap={2}>
               {[
-                "Ape",
-                "Dino",
-                "Cat",
-                "Bull",
-                "Robot",
-                "Frog",
-                "Dog",
-                "Elephant",
-                "Bear",
-                "Fish",
-                "Parrot",
-                "Tiger",
-                "Shark",
-                "Rhino",
-                "Arcane",
-                "Wolf",
-                "Alien",
-                "Lion",
+                "Inner World",
+                "Outer World",
               ].map((type, i) => (
                 <Grid
                   key={i}

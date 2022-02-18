@@ -135,7 +135,7 @@ const Explore = ({ pageContext: { spacebudz, initialOrder }, location }) => {
     <>
       <Metadata
         titleTwitter="SpaceBudz: Collectible Astronauts"
-        title="SpaceBudz | Explore"
+        title="WorldsWithin | Explore"
         description="Collect your unique SpaceBud as NFT on the Cardano blockchain."
       />
       <div
@@ -280,9 +280,9 @@ const Explore = ({ pageContext: { spacebudz, initialOrder }, location }) => {
                 <Box textAlign="center">
                   <div>
                     <b style={{ fontSize: 16, color: "#777777" }}>
-                      Total SpaceBudz:
+                      Total Worlds:
                     </b>{" "}
-                    10,000
+                    13,000
                   </div>
                 </Box>
                 <div style={{ textAlign: "center" }}>

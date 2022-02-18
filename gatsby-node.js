@@ -34,8 +34,8 @@ exports.createPages = async ({ actions: { createPage } }) => {
   });
   spacebudz.forEach((spacebud) => {
     createPage({
-      path: `/explore/spacebud/${spacebud.id}/`,
-      component: require.resolve("./src/templates/spacebud.js"),
+      path: `/explore/world/${spacebud.id}/`,
+      component: require.resolve("./src/templates/world.js"),
       context: { spacebud },
     });
   });

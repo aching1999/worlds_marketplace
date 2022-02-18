@@ -22,9 +22,9 @@ const Landing = (props) => {
   return (
     <>
       <Metadata
-        titleTwitter="SpaceBudz: Collectible Astronauts"
-        title="SpaceBudz"
-        description="Collect your unique SpaceBud as NFT on the Cardano blockchain."
+        titleTwitter="WorldsWithin - VR Native Cardano NFTs"
+        title="WorldsWithin"
+        description="VR Cardano NFTs."
       />
       <div>
         <Background>
@@ -72,7 +72,7 @@ const Landing = (props) => {
                           lineHeight: 1.3,
                         }}
                       >
-                        Collect your favorite astronauts!
+                        Explore
                       </div>
                       <Box h={6} />
                       <div
@@ -135,8 +135,7 @@ const Landing = (props) => {
                           fontWeight: "bold",
                         }}
                       >
-                        10,000 SpaceBudz are out there. Where will your
-                        SpaceBudz take you?
+                        13,000 Worlds
                       </div>
                       <Box h={8} />
                     </div>

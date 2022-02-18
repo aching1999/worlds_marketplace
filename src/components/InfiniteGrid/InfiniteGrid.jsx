@@ -55,7 +55,7 @@ const Item = ({ bud, im, type, hasDouble }) => {
 
   return (
     <div className="itemGrid">
-      <Link to={`/explore/spacebud/${bud.id}`}>
+      <Link to={`/explore/world/${bud.id}`}>
         <div className="thumbnail">
           {hasDouble ? (
             <Box
@@ -174,13 +174,13 @@ const Item = ({ bud, im, type, hasDouble }) => {
           ) : (
             <CustomLazyImage
               threshold={400}
-              alt={`SpaceBud #${bud.id}`}
+              alt={`WorldsWithin #${bud.id}`}
               effect="opacity"
               src={image}
             />
           )}
         </div>
-        <div className="info">{`SpaceBud #${bud.id}`}</div>
+        <div className="info">{`WorldsWithin #${bud.id}`}</div>
       </Link>
     </div>
   );
@@ -273,7 +273,7 @@ class InfiniteGrid extends React.Component {
       </div>
     ) : (
       <div style={{ width: "100%", textAlign: "center" }}>
-        No SpaceBud found
+        No World found
       </div>
     );
   }
