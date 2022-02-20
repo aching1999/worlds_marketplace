@@ -1,7 +1,11 @@
 import React, { Component } from 'react'  
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import {$} from 'jquery';
+
+let $;
+if (typeof window !== `undefined`) {
+  $ = require("jquery");
+}
 
 export class Home extends Component {  
 

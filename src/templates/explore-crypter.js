@@ -1,5 +1,4 @@
 import React from "react";
-import $ from 'jquery';
 import { Helmet } from "react-helmet";
 import Header from '../layout/Header';
 import Footer from '../layout/Footer';
@@ -11,6 +10,11 @@ import { mdiFilterOutline } from "@mdi/js";
 import { useDisclosure } from "@chakra-ui/hooks";
 import { StoreProvider } from "easy-peasy";
 import store from "../store";
+
+let $;
+if (typeof window !== `undefined`) {
+  $ = require("jquery");
+}
 
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));

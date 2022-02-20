@@ -1,5 +1,4 @@
 import React from "react";
-import $ from 'jquery';
 import { Helmet } from "react-helmet";
 import Header from '../layout/Header';
 import Footer from '../layout/Footer';
@@ -37,6 +36,10 @@ import secrets from "../../secrets";
 import { UnitDisplay } from "../components/UnitDisplay";
 import Loader from "../cardano/loader";
 
+let $;
+if (typeof window !== `undefined`) {
+  $ = require("jquery");
+}
 
 const World = ({ pageContext: { spacebud } }) => {
    
