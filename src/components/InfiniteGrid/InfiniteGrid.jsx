@@ -1,5 +1,5 @@
 import React from "react";
-import { GridLayout } from "@egjs/react-infinitegrid";
+import { GridLayout, MasonryInfiniteGrid } from "@egjs/react-infinitegrid";
 import "./InfiniteGrid.css";
 import { Link } from "gatsby";
 import { useBreakpoint } from "gatsby-plugin-breakpoints";
@@ -54,9 +54,9 @@ const Item = ({ bud, im, type, hasDouble }) => {
   }, []);
 
   return (
-    <div className="itemGrid">
+    <div className="card">
       <Link to={`/explore/world/${bud.id}`}>
-        <div className="thumbnail">
+        <div className="card__preview">
           {hasDouble ? (
             <Box
               display={"flex"}
@@ -202,16 +202,21 @@ class InfiniteGrid extends React.Component {
 
     for (let i = 0; i < num; ++i) {
       const bud = this.props.array[start + i];
-      items.push(
-        <Item
-          im={this.props.spacebudz[bud.id].image}
-          groupKey={groupKey}
-          key={start + i}
-          bud={this.props.array[start + i]}
-          type={this.props.type}
-          hasDouble={this.props.hasDouble}
-        />
-      );
+      console.log(bud);
+	  if(bud) {
+	    if(this.props.spacebudz[bud.id]) {
+		  items.push(
+			<Item
+			  im={this.props.spacebudz[bud.id].image}
+			  groupKey={groupKey}
+			  key={start + i}
+			  bud={this.props.array[start + i]}
+			  type={this.props.type}
+			  hasDouble={this.props.hasDouble}
+			/>
+		  );
+		}  
+	  }
     }
     this.start = start + num;
     return items;
@@ -243,11 +248,12 @@ class InfiniteGrid extends React.Component {
   };
   render() {
     return this.props.array.length > 0 ? (
-      <div>
+      <div className="grid_container">
         <GridLayout
           options={{
             useRecycle: false,
             isConstantSize: true,
+			itemSize: 200
           }}
           layoutOptions={{
             margin: !this.props.matches && -6,

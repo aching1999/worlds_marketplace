@@ -2,7 +2,7 @@ export const setFilter = async (array, filters) => {
   let filtered = [...array];
 
   if (filters.id || filters.id === 0) {
-    let result = filtered.find((bud) => bud.id === filters.id);
+    let result = filtered.find((bud) => (bud ? bud.id : 0) === filters.id);
     filtered = result ? [result] : [];
   }
 
@@ -20,17 +20,17 @@ export const setFilter = async (array, filters) => {
       });
   }
 
-  if (filters.range.length > 0) {
-    filtered = filtered.filter(
-      (bud) =>
+  if (filters.range.length > 0) {    
+	filtered = filtered.filter(
+      (bud) => bud ? 
         bud.id >= parseInt(filters.range[0]) &&
-        bud.id <= parseInt(filters.range[1])
+        bud.id <= parseInt(filters.range[1]) : false
     );
   }
 
   if (filters.gadgetsCount || filters.gadgetsCount === 0) {
     filtered = filtered.filter(
-      (bud) => bud.gadgets.length >= parseInt(filters.gadgetsCount)
+      (bud) => (bud ? bud.gadgets.length : 0) >= parseInt(filters.gadgetsCount)
     );
   }
 
@@ -45,6 +45,14 @@ export const setFilter = async (array, filters) => {
 
   if (filters.on_sale) {
     filtered = filtered.filter((bud) => bud.price);
+  }
+  
+  if (filters.world_type) {
+    filtered = filtered.filter((bud) => (bud ? bud.world_type : "") == filters.world_type);
+  }
+  
+  if (filters.terrain_trait) {
+    filtered = filtered.filter((bud) => ((bud ? bud.terrain_trait : "") == filters.terrain_trait));
   }
 
   return filtered;

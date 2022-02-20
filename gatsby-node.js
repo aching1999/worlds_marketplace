@@ -5,6 +5,11 @@ const getSpacebudz = () => { // TODO we actually don't want to use koios, it's t
   return Object.keys(metadata).map((id) => {
     const type = metadata[id].type;
     const gadgets = metadata[id].traits;
+	const src = metadata[id].src;
+	const world_type = metadata[id]["World Type"];
+	const terrain_trait = metadata[id]["Terrain Trait"];
+	const terrain_color = metadata[id]["Terrain Color"];
+	const year_length = metadata[id]["Year Length"];
     const image =
       "https://ipfs.blockfrost.dev/ipfs/" +
       metadata[id].image.split("ipfs://")[1];
@@ -13,6 +18,11 @@ const getSpacebudz = () => { // TODO we actually don't want to use koios, it's t
       image,
       type,
       gadgets,
+	  src,
+	  world_type,
+	  terrain_trait,
+	  terrain_color,
+	  year_length
     };
   });
 };
@@ -29,7 +39,7 @@ exports.createPages = async ({ actions: { createPage } }) => {
   const spacebudz = getSpacebudz();
   createPage({
     path: `/explore/`,
-    component: require.resolve("./src/templates/explore.js"),
+    component: require.resolve("./src/templates/explore-crypter.js"),
     context: { spacebudz, initialOrder },
   });
   spacebudz.forEach((spacebud) => {
@@ -43,5 +53,10 @@ exports.createPages = async ({ actions: { createPage } }) => {
     path: `/profile`,
     component: require.resolve("./src/templates/profile.js"),
     context: { spacebudz },
+  });
+  createPage({
+    path: `/`,
+    component: require.resolve("./src/templates/crypter.js"),
+    context: { spacebudz, initialOrder },
   });
 };

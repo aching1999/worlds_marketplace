@@ -17,7 +17,7 @@ const Input = ({
     <div style={{ display: "flex", alignItems: "center" }}>
       <input
         onKeyUp={onKeyUp}
-        className={styles.customInput}
+        className={"catalog__input"}
         value={value}
         type="text"
         onChange={onChange}

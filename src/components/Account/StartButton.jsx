@@ -185,6 +185,7 @@ const StartButton = (props) => {
     <Popover onOpen={onOpen} onClose={onClose} isOpen={isOpen}>
       <PopoverTrigger>
         <Button
+		  className={"button-stroke button-small header__button header__connect"}
           isDisabled={isLoading}
           isLoading={isLoading}
           colorScheme="purple"
@@ -199,8 +200,9 @@ const StartButton = (props) => {
             width="full"
             height="full"
             position="absolute"
-          />
-          <Box zIndex="1">Connect</Box>
+			style={{display:'none'}}
+          /> 
+          <Box zIndex="1">Connect Wallet</Box>
         </Button>
       </PopoverTrigger>
       <PopoverContent width={"210px"}>
