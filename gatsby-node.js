@@ -49,11 +49,13 @@ exports.createPages = async ({ actions: { createPage } }) => {
       context: { spacebud },
     });
   });
+  /* 
   createPage({
     path: `/profile`,
     component: require.resolve("./src/templates/profile.js"),
     context: { spacebudz },
   });
+  */
   createPage({
     path: `/`,
     component: require.resolve("./src/templates/crypter.js"),
