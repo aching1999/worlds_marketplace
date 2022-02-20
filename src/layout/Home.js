@@ -1,7 +1,7 @@
 import React, { Component } from 'react'  
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import $ from 'jquery';
+import {$} from 'jquery';
 
 export class Home extends Component {  
 

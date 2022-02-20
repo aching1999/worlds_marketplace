@@ -1,5 +1,4 @@
 module.exports = {
-  pathPrefix: "/worlds_marketplace",
   plugins: [
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
