@@ -36,7 +36,6 @@ export class Home extends Component {
 			if(latest_count == 8) break;
 		}
 	
-		window.addEventListener('resize', this.handleResize)
     }
 	
 	handleResize = () => {
@@ -48,6 +47,8 @@ export class Home extends Component {
 	}
 	
 	componentDidMount() {
+		window.addEventListener('resize', this.handleResize);
+		
 		let self = this;
 		setTimeout(function() {
 			self.handleResize();
