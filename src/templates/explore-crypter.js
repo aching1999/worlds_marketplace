@@ -278,8 +278,8 @@ const ExploreCrypter = ({ pageContext: { spacebudz, initialOrder }, location }) 
 				  />
 				  </div>
 				</div>
-				<div className="catalog__sorting" ref={sort_order}>
-				  <select className="select" id="sort_order">
+				<div className="catalog__sorting">
+				  <select className="select" ref={sort_order}>
 					<option value="DESC">Newest</option>
 					<option value="ASC">Oldest</option>
 				  </select>
@@ -290,7 +290,7 @@ const ExploreCrypter = ({ pageContext: { spacebudz, initialOrder }, location }) 
 				  <div className="catalog__filters">
 					<div className="range">
 					  <div className="range__label">Minimum No. of Traits</div>
-					  <div className="range__slider js-slider" ref={jslider} data-min="1" data-max="10" data-start="1" data-step="1" data-tooltips="true" data-postfix=" Traits"></div>
+					  <div className="range__slider js-slider" id="jslider" ref={jslider} data-min="1" data-max="10" data-start="1" data-step="1" data-tooltips="true" data-postfix=" Traits"></div>
 					  <div className="range__indicators">
 						<div className="range__text">1 Traits</div>
 						<div className="range__text">10 Traits</div>
@@ -299,7 +299,7 @@ const ExploreCrypter = ({ pageContext: { spacebudz, initialOrder }, location }) 
 					<div className="catalog__group">
 					  <div className="field">
 						<div className="field__label">World Type</div>
-						<select className="select" id="world_type" ref={world_type}>
+						<select className="select" ref={world_type}>
 						  <option value="">All</option>
 						  <option value="Inner World">Inner World</option>
 						  <option value="Outer World">Outer World</option>						  
@@ -307,7 +307,7 @@ const ExploreCrypter = ({ pageContext: { spacebudz, initialOrder }, location }) 
 					  </div>
 					  <div className="field">
 						<div className="field__label">Terrain</div>
-						<select className="select" id="terrain_trait" ref={terrain_trait}>
+						<select className="select" ref={terrain_trait}>
 						  <option value="">All</option>
 						  <option value="canyon">Canyon</option>
 						  <option value="spikes">Spikes</option>
@@ -318,7 +318,7 @@ const ExploreCrypter = ({ pageContext: { spacebudz, initialOrder }, location }) 
 					  </div>	
 					  <div className="field">
 						<div className="field__label">On Sale</div>
-						<select className="select" id="onsale" ref={onsale}>
+						<select className="select" ref={onsale}>
 						  <option value="any">Any</option>
 						  <option value="yes">Yes</option>						  
 						</select>
@@ -342,7 +342,7 @@ const ExploreCrypter = ({ pageContext: { spacebudz, initialOrder }, location }) 
 						  
 						  //urlParams.delete("gadgetsCount");
 						  //let gadgetsCount_str = $(".js-slider")[0].noUiSlider.get();
-						  let gadgetsCount_str = jslider.current[0].noUiSlider.get();
+						  let gadgetsCount_str = document.getElementsByClassName("noUi-handle")[0].getAttribute("aria-valuetext");
 						  f.gadgetsCount = gadgetsCount_str.replace(" Traits", "");
 						  
 						  //urlParams.delete("on_sale");
@@ -389,7 +389,7 @@ const ExploreCrypter = ({ pageContext: { spacebudz, initialOrder }, location }) 
 						  
 						  window.history.pushState({}, null, base);
 						}}
-					>Filter</Button>
+					>Apply Filter</Button>
 					<a className="catalog__reset" href="" 
 						onClick={() => {
 						  let base = "/explore/";
