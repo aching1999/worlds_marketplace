@@ -1,9 +1,6 @@
 node_modules/
 .cache/
-public/*
-!public/css/
-!public/js/
-!public/img/
+public/
 static/
 .firebase/
 .firebaserc
