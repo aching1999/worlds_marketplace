@@ -4,45 +4,46 @@ import React, { Component } from 'react'
  export const wrapPageElement = CustomLayout; */
 
 export const onRenderBody = ({ setPostBodyComponents }) => {  
+  let site_root = __dirname;
   setPostBodyComponents([
     <script
 	  key="jquery"
-      src="/js/lib/jquery.min.js" 
+      src={process.env.SITE_ROOT + "js/lib/jquery.min.js"} 
       type="text/javascript"
     />,
 	<script
 	  key="slick"
-      src="/js/lib/slick.min.js" 
+      src={process.env.SITE_ROOT + "js/lib/slick.min.js"} 
       type="text/javascript"
     />,
 	<script
 	  key="nice-select"
-      src="/js/lib/jquery.nice-select.min.js" 
+      src={process.env.SITE_ROOT + "js/lib/jquery.nice-select.min.js"} 
       type="text/javascript"
     />,	
 	<script
 	  key="nouislider"
-      src="/js/lib/nouislider.min.js" 
+      src={process.env.SITE_ROOT + "js/lib/nouislider.min.js"} 
       type="text/javascript"
     />,
 	<script
 	  key="wNumb"
-      src="/js/lib/wNumb.js" 
+      src={process.env.SITE_ROOT + "js/lib/wNumb.js"} 
       type="text/javascript"
     />,	
 	<script
 	  key="popup"
-      src="/js/lib/jquery.magnific-popup.min.js" 
+      src={process.env.SITE_ROOT + "js/lib/jquery.magnific-popup.min.js"} 
       type="text/javascript"
     />,
 	<script
 	  key="countdown"
-      src="/js/lib/jquery.countdown.min.js" 
+      src={process.env.SITE_ROOT + "js/lib/jquery.countdown.min.js"} 
       type="text/javascript"
     />,
 	<script
 	  key="share-buttons"
-      src="/js/lib/share-buttons.js" 
+      src={process.env.SITE_ROOT + "js/lib/share-buttons.js"} 
       type="text/javascript"
     />,	
     <script

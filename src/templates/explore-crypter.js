@@ -17,18 +17,18 @@ function sleep(ms) {
 }
 
 const Card = (props) => {
-  let traits = Array(props.world.gadgets.length).fill(<div className="card__avatar"><img src="/img/icon-traits.png" alt="Avatar"/></div>);	
+  let traits = Array(props.world.gadgets.length).fill(<div className="card__avatar"><img src={process.env.SITE_ROOT+"img/icon-traits.png"} alt="Avatar"/></div>);	
   return (
     <div className="card">
 		<div className="card__preview"><img srcSet={props.world.image} src={props.world.image} alt="Card preview"/>
 		  <div className="card__control">
 			<div className="status-green card__category">{props.world.world_type}</div>
-			<a className="button-small card__button js-popup-open" href={"/explore/world/"+props.world.id} data-effect="mfp-zoom-in"><span>View World</span>
+			<a className="button-small card__button js-popup-open" href={process.env.SITE_ROOT+"explore/world/"+props.world.id} data-effect="mfp-zoom-in"><span>View World</span>
 			  <svg className="icon icon-scatter-up">
 				<use xlinkHref="#icon-scatter-up"></use>
 			  </svg></a>
 		  </div>
-		</div><a className="card__link" href={"/explore/world/"+props.world.id}>
+		</div><a className="card__link" href={process.env.SITE_ROOT+"explore/world/"+props.world.id}>
 		  <div className="card__body">
 			<div className="card__line"> 
 			  <div className="card__title">{"WorldsWithin #"+props.world.id}</div>
@@ -207,7 +207,7 @@ const ExploreCrypter = ({ pageContext: { spacebudz, initialOrder }, location }) 
 
   React.useEffect(() => { 
 	const script = document.createElement("script");
-	script.src = "/js/app.js";
+	script.src = process.env.SITE_ROOT+"js/app.js";
 	/* script.async = true;	*/
 	document.body.appendChild(script);
 		
@@ -225,8 +225,8 @@ const ExploreCrypter = ({ pageContext: { spacebudz, initialOrder }, location }) 
             <title>Worlds Within Marketplace</title>			
 			<link rel="preconnect" href="https://fonts.gstatic.com"/>
 			<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@700&amp;family=Poppins:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
-			<link rel="stylesheet" media="all" href="/css/app.min.css"/>
-			<link rel="stylesheet" media="all" href="/css/overrides.css"/>
+			<link rel="stylesheet" media="all" href={process.env.SITE_ROOT + "css/app.min.css"}/>
+			<link rel="stylesheet" media="all" href={process.env.SITE_ROOT + "css/overrides.css"}/>
 			<script>{`var viewportmeta = document.querySelector('meta[name="viewport"]');
 			  if (viewportmeta) {
 				if (screen.width < 375) {
@@ -362,29 +362,29 @@ const ExploreCrypter = ({ pageContext: { spacebudz, initialOrder }, location }) 
 						  //urlParams.delete("type");
 						  //urlParams.delete("gadget");						  
 						  						  
-						  let base = "/explore/";
+						  let base = process.env.SITE_ROOT+"explore/";
 						  if(f.order_id) {
 							//urlParams.set("order_id", f.order_id);
 							base += "?order_id=" + f.order_id;
 						  } 
 						  if(f.gadgetsCount) {
 							//urlParams.set("range", f.range);
-							base += (base=="/explore/"?"?":"&") + "gadgetsCount=" + f.gadgetsCount;
+							base += (base==process.env.SITE_ROOT+"explore/"?"?":"&") + "gadgetsCount=" + f.gadgetsCount;
 						  } 
 						  if(f.on_sale === "yes") {
 							//urlParams.set("on_sale", f.on_sale);
 							//base += (base=="/explore/"?"?":"&") + urlParams;
-							base += (base=="/explore/"?"?":"&") + "on_sale=true";
+							base += (base==process.env.SITE_ROOT+"explore/"?"?":"&") + "on_sale=true";
 						  } 
 						  if(f.world_type) {
 							//urlParams.set("world_type", f.world_type);
 							//base += (base=="/explore/"?"?":"&") + urlParams;
-							base += (base=="/explore/"?"?":"&") + "world_type=" + f.world_type;
+							base += (base==process.env.SITE_ROOT+"explore/"?"?":"&") + "world_type=" + f.world_type;
 						  } 
 						  if(f.terrain_trait) {
 							//urlParams.set("terrain_trait", f.terrain_trait);
 							//base += (base=="/explore/"?"?":"&") + urlParams;
-							base += (base=="/explore/"?"?":"&") + "terrain_trait=" + f.terrain_trait;
+							base += (base==process.env.SITE_ROOT+"explore/"?"?":"&") + "terrain_trait=" + f.terrain_trait;
 						  } 
 						  
 						  window.history.pushState({}, null, base);
@@ -392,7 +392,7 @@ const ExploreCrypter = ({ pageContext: { spacebudz, initialOrder }, location }) 
 					>Apply Filter</Button>
 					<a className="catalog__reset" href="" 
 						onClick={() => {
-						  let base = "/explore/";
+						  let base = process.env.SITE_ROOT+"explore/";
 						  window.history.pushState({}, null, base);
 						}}
 					>

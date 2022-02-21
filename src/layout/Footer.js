@@ -7,7 +7,7 @@ export class Footer extends Component {
 		  <footer className="footer">
 			<div className="footer__center center">
 			  <div className="footer__row">
-				<div className="footer__col"><a className="footer__logo" href="/"><img className="some-icon" src="/img/logo.png" alt="Crypter NFT" /><img className="some-icon-dark" src="/img/logo-light.png" alt="Worlds NFT" /></a>
+				<div className="footer__col"><a className="footer__logo" href={process.env.SITE_ROOT}><img className="some-icon" src={process.env.SITE_ROOT+"img/logo.png"} alt="Crypter NFT" /><img className="some-icon-dark" src={process.env.SITE_ROOT+"img/logo-light.png"} alt="Worlds NFT" /></a>
 				  <div className="footer__info">Powered by Cardano</div>
 				  <div className="footer__theme">
 					{/* <div className="footer__details">Dark theme</div> 
@@ -25,7 +25,7 @@ export class Footer extends Component {
 					  </svg>
 					</div>
 					<div className="footer__body">
-					  <div className="footer__menu"><a className="footer__link" href="/explore">Explore</a></div>
+					  <div className="footer__menu"><a className="footer__link" href={process.env.SITE_ROOT+"explore"}>Explore</a></div>
 					</div>
 				  </div>
 				  <div className="footer__group">
@@ -35,7 +35,7 @@ export class Footer extends Component {
 					  </svg>
 					</div>
 					<div className="footer__body">
-					  <div className="footer__menu"><a className="footer__link" href="#">FAQ</a></div>
+					  <div className="footer__menu"><a className="footer__link" href={process.env.SITE_ROOT}>FAQ</a></div>
 					</div>
 				  </div>
 				</div>

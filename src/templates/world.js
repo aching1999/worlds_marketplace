@@ -40,7 +40,7 @@ const World = ({ pageContext: { spacebud } }) => {
    
    React.useEffect(() => { 
 	const script = document.createElement("script");
-	script.src = "/js/app.js";
+	script.src = process.env.SITE_ROOT+"/js/app.js";
 	script.async = true;
 	document.body.appendChild(script);
   }, []);
@@ -52,8 +52,8 @@ const World = ({ pageContext: { spacebud } }) => {
             <title>Worlds Within Marketplace</title>			
 			<link rel="preconnect" href="https://fonts.gstatic.com"/>
 			<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@700&amp;family=Poppins:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
-			<link rel="stylesheet" media="all" href="/css/app.min.css"/>
-			<link rel="stylesheet" media="all" href="/css/overrides.css"/>
+			<link rel="stylesheet" media="all" href={process.env.SITE_ROOT + "css/app.min.css"}/>
+			<link rel="stylesheet" media="all" href={process.env.SITE_ROOT + "css/overrides.css"}/>
 			<script>{`var viewportmeta = document.querySelector('meta[name="viewport"]');
 			  if (viewportmeta) {
 				if (screen.width < 375) {
@@ -74,7 +74,7 @@ const World = ({ pageContext: { spacebud } }) => {
 					<div className="item__categories">
 					  <div className="status-black item__category">art</div>
 					  <div className="status-purple item__category">unlockable</div>
-					</div><img srcSet="/img/content/item-pic@2x.jpg 2x" src="/img/content/item-pic.jpg" alt="Item" />
+					</div><img srcSet="/img/content/item-pic@2x.jpg 2x" src={process.env.SITE_ROOT+"img/content/item-pic.jpg"} alt="Item" />
 				  </div>
 				  <div className="options">
 					<div className="options__list">
@@ -138,8 +138,8 @@ const World = ({ pageContext: { spacebud } }) => {
 					  <div className="item__box js-tabs-item" style={{display: "block"}}>
 						<div className="item__users">
 						  <div className="item__user">
-							<div className="item__avatar"><img src="/img/content/avatar-2.jpg" alt="Avatar"/>
-							  <div className="item__reward"><img src="/img/content/reward-1.svg" alt="Reward"/></div>
+							<div className="item__avatar"><img src={process.env.SITE_ROOT+"img/content/avatar-2.jpg"} alt="Avatar"/>
+							  <div className="item__reward"><img src={process.env.SITE_ROOT+"img/content/reward-1.svg"} alt="Reward"/></div>
 							</div>
 							<div className="item__description">
 							  <div className="item__position">Owner</div>
@@ -147,7 +147,7 @@ const World = ({ pageContext: { spacebud } }) => {
 							</div>
 						  </div>
 						  <div className="item__user">
-							<div className="item__avatar"><img src="/img/content/avatar-1.jpg" alt="Avatar"/></div>
+							<div className="item__avatar"><img src={process.env.SITE_ROOT+"img/content/avatar-1.jpg"} alt="Avatar"/></div>
 							<div className="item__description">
 							  <div className="item__position">Creator</div>
 							  <div className="item__name">Selina Mayert</div>
@@ -158,7 +158,7 @@ const World = ({ pageContext: { spacebud } }) => {
 					  <div className="item__box js-tabs-item">
 						<div className="item__users">
 						  <div className="item__user">
-							<div className="item__avatar"><img src="/img/content/avatar-1.jpg" alt="Avatar"/></div>
+							<div className="item__avatar"><img src={process.env.SITE_ROOT+"img/content/avatar-1.jpg"} alt="Avatar"/></div>
 							<div className="item__description">
 							  <div className="item__position">Owner</div>
 							  <div className="item__name">Cole Mayert</div>
@@ -169,8 +169,8 @@ const World = ({ pageContext: { spacebud } }) => {
 					  <div className="item__box js-tabs-item">
 						<div className="item__users">
 						  <div className="item__user">
-							<div className="item__avatar"><img src="/img/content/avatar-2.jpg" alt="Avatar"/>
-							  <div className="item__reward"><img src="/img/content/reward-1.svg" alt="Reward"/></div>
+							<div className="item__avatar"><img src={process.env.SITE_ROOT+"img/content/avatar-2.jpg"} alt="Avatar"/>
+							  <div className="item__reward"><img src={process.env.SITE_ROOT+"img/content/reward-1.svg"} alt="Reward"/></div>
 							</div>
 							<div className="item__description">
 							  <div className="item__name">Raquel Will</div>
@@ -179,8 +179,8 @@ const World = ({ pageContext: { spacebud } }) => {
 							<div className="item__time">Jun 14 - 4:12 PM</div>
 						  </div>
 						  <div className="item__user">
-							<div className="item__avatar"><img src="/img/content/avatar-6.jpg" alt="Avatar"/>
-							  <div className="item__reward"><img src="/img/content/reward-1.svg" alt="Reward"/></div>
+							<div className="item__avatar"><img src={process.env.SITE_ROOT+"img/content/avatar-6.jpg"} alt="Avatar"/>
+							  <div className="item__reward"><img src={process.env.SITE_ROOT+"img/content/reward-1.svg"} alt="Reward"/></div>
 							</div>
 							<div className="item__description">
 							  <div className="item__name">Cole Fahey</div>
@@ -189,8 +189,8 @@ const World = ({ pageContext: { spacebud } }) => {
 							<div className="item__time">Jun 14 - 4:12 PM</div>
 						  </div>
 						  <div className="item__user">
-							<div className="item__avatar"><img src="/img/content/avatar-7.jpg" alt="Avatar"/>
-							  <div className="item__reward"><img src="/img/content/reward-1.svg" alt="Reward"/></div>
+							<div className="item__avatar"><img src={process.env.SITE_ROOT+"img/content/avatar-7.jpg"} alt="Avatar"/>
+							  <div className="item__reward"><img src={process.env.SITE_ROOT+"img/content/reward-1.svg"} alt="Reward"/></div>
 							</div>
 							<div className="item__description">
 							  <div className="item__name">Adah Mitchell</div>
@@ -203,8 +203,8 @@ const World = ({ pageContext: { spacebud } }) => {
 					  <div className="item__box js-tabs-item">
 						<div className="item__users">
 						  <div className="item__user">
-							<div className="item__avatar"><img src="/img/content/avatar-2.jpg" alt="Avatar"/>
-							  <div className="item__reward"><img src="/img/content/reward-1.svg" alt="Reward"/></div>
+							<div className="item__avatar"><img src={process.env.SITE_ROOT+"img/content/avatar-2.jpg"} alt="Avatar"/>
+							  <div className="item__reward"><img src={process.env.SITE_ROOT+"img/content/reward-1.svg"} alt="Reward"/></div>
 							</div>
 							<div className="item__description">
 							  <div className="item__action">Highest bid: <span>1.46 ETH</span></div>
@@ -212,14 +212,14 @@ const World = ({ pageContext: { spacebud } }) => {
 							</div>
 						  </div>
 						  <div className="item__user">
-							<div className="item__avatar"><img src="/img/content/avatar-1.jpg" alt="Avatar"/></div>
+							<div className="item__avatar"><img src={process.env.SITE_ROOT+"img/content/avatar-1.jpg"} alt="Avatar"/></div>
 							<div className="item__description">
 							  <div className="item__action">#2</div>
 							  <div className="item__name">Cole Fahey</div>
 							</div>
 						  </div>
 						  <div className="item__user">
-							<div className="item__avatar"><img src="/img/content/avatar-8.jpg" alt="Avatar"/></div>
+							<div className="item__avatar"><img src={process.env.SITE_ROOT+"img/content/avatar-8.jpg"} alt="Avatar"/></div>
 							<div className="item__description">
 							  <div className="item__action">#3</div>
 							  <div className="item__name">Selina Mayert</div>
@@ -231,7 +231,7 @@ const World = ({ pageContext: { spacebud } }) => {
 				  </div>
 				  <div className="item__control">
 					<div className="item__head">
-					  <div className="item__avatar"><img src="/img/content/avatar-4.jpg" alt="Avatar"/></div>
+					  <div className="item__avatar"><img src={process.env.SITE_ROOT+"img/content/avatar-4.jpg"} alt="Avatar"/></div>
 					  <div className="item__description">
 						<div className="item__info">Highest bid by <span>Kohaku Tora</span></div>
 						<div className="item__currency">
@@ -309,7 +309,7 @@ const World = ({ pageContext: { spacebud } }) => {
 					<div className="popup__category">This creator is not verified</div>
 					<div className="popup__text">Purchase this item at your own risk</div>
 				  </div>
-				  <div className="popup__avatar"><img src="/img/content/avatar-3.jpg" alt="Avatar"/></div>
+				  <div className="popup__avatar"><img src={process.env.SITE_ROOT+"img/content/avatar-3.jpg"} alt="Avatar"/></div>
 				</div>
 				<div className="popup__btns">
 				  <button className="button popup__button">I understand, continue</button>

@@ -13,7 +13,7 @@ export class HomeLayout extends Component {
 	componentDidMount() {
 		//execute homepage scripts
 		const script = document.createElement("script");
-		script.src = "/js/app.js";
+		script.src = process.env.SITE_ROOT+"js/app.js";
 		script.async = true;	
 		document.body.appendChild(script);		
     }
