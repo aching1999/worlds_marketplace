@@ -1,11 +1,5 @@
 import React, { Component } from 'react'  
 import { Link } from 'react-router-dom';
-import axios from 'axios';
-
-let $;
-if (typeof window !== `undefined`) {
-  $ = require("jquery");
-}
 
 export class Home extends Component {  
 
@@ -15,13 +9,24 @@ export class Home extends Component {
 		  world_data: this.props.worlds_data,
 		  featured_nfts: ["4436", "2440"],
 		  featured_nfts_arr: [],
-		  latest_nfts: [],
-		  vr_data: [{html:""}, {html:""}, {html:""}, {html:""}]
+		  latest_nfts: []
 		};
 		
-		let self = this;
-		$.each(this.state.featured_nfts, function( index, value ) {
-		  self.state.featured_nfts_arr.push($.grep(self.state.world_data, function(e) { return e.id === value; })[0]);
+		let self = this;		
+		//$.each(this.state.featured_nfts, function( index, value ) {
+        this.state.featured_nfts.map(function (featured_world_nft, index) {
+		  /* self.state.featured_nfts_arr.push(
+			$.grep(self.state.world_data, 
+				   function(e) { 
+					  return e.id === value; 
+				   }
+		    )[0]
+		  );
+		  */
+		  let elem_filtered = self.state.world_data.filter(function(e) {
+				return e.id === featured_world_nft; 
+		  });
+		  self.state.featured_nfts_arr.push(elem_filtered[0]);
 		});
 		
 		let latest_count = 0;
@@ -35,7 +40,11 @@ export class Home extends Component {
     }
 	
 	handleResize = () => {
-		$(".iframe_vr").height($(".player__preview").width() * 0.75);
+		//$(".iframe_vr").height($(".player__preview").width() * 0.75);
+		let eachItemWidth = document.querySelectorAll(".player__preview")[0].offsetWidth;
+		document.querySelectorAll(".iframe_vr").forEach(element => {
+			 element.style.width = eachItemWidth + "px";
+		})
 	}
 	
 	componentDidMount() {
@@ -43,18 +52,13 @@ export class Home extends Component {
 		setTimeout(function() {
 			self.handleResize();
 		}, 500);
-		/* 
-		$(".iframe_vr").on("load", function() {		  
-		  let vr_key = $(this).data("key");
-		  $("#vr_loader_"+vr_key)
-		});
-		*/
 	}
 	
     render() {  
 		let self = this;
 		let featured_nfts_elem = [];
-		$.each(this.state.featured_nfts_arr, function( index, featured_world_nft ) {
+		/* $.each(this.state.featured_nfts_arr, function( index, featured_world_nft ) { */
+		this.state.featured_nfts_arr.map(function (featured_world_nft, index) {
 			let vr_src = featured_world_nft.src.replace("ipfs://", "https://ipfs.io/ipfs/");
 			featured_nfts_elem.push(<div className="main__slide" key={index}>
 									  <div className="main__row">
@@ -112,13 +116,10 @@ export class Home extends Component {
 									</div>);
 		});
 		
-		console.log("ON RENDER LATEST NFTS");
-		console.log(this.state.latest_nfts);
-		
 		let latest_nfts_elem = [];
-		$.each(this.state.latest_nfts, function( index, latest_world_nft ) {		
-			let traits = Array(latest_world_nft.gadgets.length).fill(<div className="card__avatar"><img src="/img/icon-traits.png" alt="Avatar"/></div>);	
-			
+		//$.each(this.state.latest_nfts, function( index, latest_world_nft ) {		
+	    this.state.latest_nfts.map(function (latest_world_nft, index) { 											  
+			let traits = Array(latest_world_nft.gadgets.length).fill(<div className="card__avatar"><img src="/img/icon-traits.png" alt="Avatar"/></div>);
 			latest_nfts_elem.push(<div className="hot__slide" key={index}>
 						<div className="card">
 						  <div className="card__preview"><img srcSet={latest_world_nft.image} src={latest_world_nft.image} alt="Card preview"/>

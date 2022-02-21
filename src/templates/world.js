@@ -36,11 +36,6 @@ import secrets from "../../secrets";
 import { UnitDisplay } from "../components/UnitDisplay";
 import Loader from "../cardano/loader";
 
-let $;
-if (typeof window !== `undefined`) {
-  $ = require("jquery");
-}
-
 const World = ({ pageContext: { spacebud } }) => {
    
    React.useEffect(() => { 

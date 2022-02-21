@@ -1,4 +1,4 @@
-import CustomLayout from "./wrapPageElement";
+/* import CustomLayout from "./wrapPageElement";
 
-/* export const wrapPageElement = CustomLayout; */
+export const wrapPageElement = CustomLayout; */
 
