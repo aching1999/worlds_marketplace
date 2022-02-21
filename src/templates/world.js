@@ -35,18 +35,222 @@ import Market from "../cardano/market";
 import secrets from "../../secrets";
 import { UnitDisplay } from "../components/UnitDisplay";
 import Loader from "../cardano/loader";
+import Show from "../images/assets/show.svg";
 
-const World = ({ pageContext: { spacebud } }) => {
+export const toHex = (bytes) => Buffer.from(bytes).toString("hex");
+const isBrowser = () => typeof window !== "undefined";
+
+const World = (props) => {
+   /* old vars here ================================================================================ */
+  const spacebud = props.spacebud; 
+  const matches = useBreakpoint();
+  const toast = useToast();
+  const [owner, setOwner] = React.useState([]);
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const tradeRef = React.useRef();
+  const [isLoadingMarket, setIsLoadingMarket] = React.useState(true);
+  const [details, setDetails] = React.useState({
+    bid: { bidUtxo: null, lovelace: null, usd: null, owner: false },
+    offer: { offerUtxo: null, lovelace: null, usd: null, owner: true },
+    lastSale: { lovelace: null, usd: null },
+  });
+  const [loadingButton, setLoadingButton] = React.useState({
+    cancelBid: false,
+    bid: false,
+    buy: false,
+    offer: false,
+    cancelOffer: false,
+    sell: false,
+  });
+  const connected = useStoreState((state) => state.connection.connected);
+
+  const market = React.useRef();
+
+  const POLICY = "3c2cfd4f1ad33678039cfd0347cca8df363c710067d739624218abc0"; // mainnet
+  const CONTRACT_ADDRESS =
+    // "addr1wyvvtqlx34nu8xkpe86dcznlj9kwgpy97x0zpgqnr782hvcyjjcdh";
+    "addr1zyvvtqlx34nu8xkpe86dcznlj9kwgpy97x0zpgqnr782hvlassd377xwhjrwyuqtxsces0ksaev6s7pllvd7hrpfn98q35a5tz"; // This is the staked version of the address above.
+
+  const connectedAddresses = React.useRef([]);
+
+  const isOwner = (address) =>
+    connectedAddresses.current.length > 0
+      ? connectedAddresses.current.some((addr) => addr === address)
+      : false;
+
+  const firstUpdate = React.useRef(true);
+  const init = async () => {
+    connectedAddresses.current = connected
+      ? (await window.cardano.selectedWallet.getUsedAddresses()).map((addr) =>
+          Loader.Cardano.Address.from_bytes(
+            Buffer.from(addr, "hex")
+          ).to_bech32()
+        )
+      : [];
+    if (firstUpdate.current) {
+      await loadMarket();
+      await loadSpaceBudData();
+      firstUpdate.current = false;
+      return;
+    }
+    await loadSpaceBudData();
+  };
+  
+  const checkTransaction = async (txHash, { type, lovelace } = {}) => { // TODO - Where is this used, can we remove it?
+    if (!txHash) return;
+    PendingTransactionToast(toast);
+    if (type) {
+      fetch("https://api.spacebudzbot.com/tweet", {
+        method: "POST",
+        headers: {
+          Authorization: "Bearer " + secrets.TWITTER_BOT_TOKEN,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ id: spacebud.id.toString(), type, lovelace }),
+      })
+        .then(console.log)
+        .catch(console.log);
+    }
+    await market.current.awaitConfirmation(txHash);
+    toast.closeAll();
+    SuccessTransactionToast(toast, txHash);
+    await new Promise((res, rej) => setTimeout(() => res(), 1000));
+    loadSpaceBudData();
+  };
+
+  const loadMarket = async () => {
+    market.current = new Market(
+      {
+        base: "https://cardano-mainnet.blockfrost.io/api/v0",
+        projectId: secrets.PROJECT_ID,
+      },
+      ""
+    );
+    await market.current.load(); // TODO - Do we need to fix load at all?
+  };
+
+  const loadSpaceBudData = async () => { // TODO - We can load the worlds within here based purely on ID I think.
+    await Loader.load();
+    setIsLoadingMarket(true);
+    setOwner([]);
+    const sid = (spacebud.id).padStart(5, "0")
+    console.log(sid)
+    const token = POLICY + toHex(`WorldsWithin${sid}`);
+    console.log("between sid and token")
+    console.log(token)
+    let addresses = await fetch(
+      `https://cardano-mainnet.blockfrost.io/api/v0/assets/${token}/addresses`,
+      { headers: { project_id: secrets.PROJECT_ID } }
+    ).then((res) => res.json());
+    const fiatPrice = await fetch(
+      `https://api.coingecko.com/api/v3/simple/price?ids=cardano&vs_currencies=usd`
+    )
+      .then((res) => res.json())
+      .then((res) => res.cardano["usd"]);
+    const lastSale = null // {"budId":spacebud.id,"offer":null,"bid":null,"lastSale":null}
+    /*await fetch( // TODO - Remove or replace. - Where are these being published from?
+      `https://spacebudz.io/api/specificSpaceBud/${spacebud.id}`
+    )
+      .then((res) => res.json())
+      .then((res) => res.lastSale);*/
+
+    const bidUtxo = await market.current.getBid(spacebud.id);
+    let offerUtxo = await market.current.getOffer(spacebud.id);
+
+    // check if twin
+    /*if (Array.isArray(offerUtxo)) {
+      if (
+        offerUtxo.length === 2 &&
+        (spacebud.id === 1903 || spacebud.id === 6413)
+      ) {
+        const ownerUtxo = offerUtxo.find((utxo) =>
+          isOwner(utxo.tradeOwnerAddress.to_bech32())
+        );
+
+        if (ownerUtxo) {
+          offerUtxo = ownerUtxo;
+        } else {
+          const offerUtxo1 = offerUtxo[0];
+          const offerUtxo2 = offerUtxo[1];
+          // set correct owner
+          addresses = [
+            { adddress: offerUtxo1.tradeOwnerAddress.to_bech32() },
+            { address: offerUtxo1.tradeOwnerAddress.to_bech32() },
+          ];
+          if (
+            isBrowser() &&
+            window.BigInt(offerUtxo1.lovelace) <
+              window.BigInt(offerUtxo2.lovelace)
+          ) {
+            offerUtxo = offerUtxo1;
+          } else {
+            offerUtxo = offerUtxo2;
+          }
+        }
+      } else throw new Error("Something went wrong");
+    }*/
+    const details = {
+      bid: { bidUtxo: null, lovelace: null, usd: null, owner: false },
+      offer: { offerUtxo: null, lovelace: null, usd: null, owner: false },
+      lastSale: { lovelace: null, usd: null },
+    };
+    details.bid.bidUtxo = bidUtxo;
+    details.offer.offerUtxo = offerUtxo;
+    console.log(bidUtxo);
+    console.log(offerUtxo);
+    // ignore if state is StartBid
+    if (toHex(bidUtxo.datum.to_bytes()) !== "d866820080") {
+      if (isOwner(bidUtxo.tradeOwnerAddress.to_bech32())) {
+        details.bid.owner = true;
+      }
+      details.bid.lovelace = bidUtxo.lovelace;
+      details.bid.usd = (bidUtxo.lovelace / 10 ** 6) * fiatPrice * 10 ** 2;
+    }
+    console.log(addresses)
+    // console.log(address)
+    if (addresses.find((address) => isOwner(address.address)))
+      details.offer.owner = true;
+    if (offerUtxo) {
+      addresses = addresses.map((address) =>
+        address.address === CONTRACT_ADDRESS
+          ? { address: offerUtxo.tradeOwnerAddress.to_bech32() }
+          : address
+      );
+      if (isOwner(offerUtxo.tradeOwnerAddress.to_bech32())) {
+        details.offer.owner = true;
+      }
+      details.offer.lovelace = offerUtxo.lovelace;
+      details.offer.usd = (offerUtxo.lovelace / 10 ** 6) * fiatPrice * 10 ** 2;
+    }
+
+    if (lastSale) {
+      details.lastSale.lovelace = lastSale;
+      details.lastSale.usd = (lastSale / 10 ** 6) * fiatPrice * 10 ** 2;
+    }
+
+    //check if same address if there are 2
+
+    if (addresses.length > 1 && addresses[0].address === addresses[1].address) {
+      addresses = [addresses[0]];
+    }
+
+    setDetails(details);
+    setOwner(addresses);
+    setIsLoadingMarket(false);
+  };
+  
+   /* end old vars ================================================================================= */
    
    React.useEffect(() => { 
 	const script = document.createElement("script");
-	script.src = process.env.SITE_ROOT+"/js/app.js";
+	script.src = process.env.SITE_ROOT+"js/app.js";
 	script.async = true;
 	document.body.appendChild(script);
-  }, []);
+	init();
+  }, [connected]);
    
    return (
-    <StoreProvider store={store}>
+    <div>
 		{/* Head */}
 		<Helmet>
             <title>Worlds Within Marketplace</title>			
@@ -125,7 +329,7 @@ const World = ({ pageContext: { spacebud } }) => {
 				  </div>
 				</div>
 				<div className="item__details">
-				  <h1 className="item__title h3">The amazing art</h1>
+				  <h1 className="item__title h3">WorldsWithin #{spacebud.id}</h1>
 				  <div className="item__cost">
 					<div className="status-stroke-green item__price">2.5 ETH</div>
 					<div className="status-stroke-black item__price">$4,429.87</div>
@@ -694,7 +898,7 @@ const World = ({ pageContext: { spacebud } }) => {
 </svg>
     </div>
 		<Footer />
-	</StoreProvider>
+	</div>
   );
 
 };
@@ -738,4 +942,12 @@ const Attribute = (props) => {
   );
 };
 
-export default World;
+const World_Layout = ({ pageContext: { spacebud } }) => {
+  return (
+    <StoreProvider store={store}>
+      <World spacebud={spacebud} />
+    </StoreProvider>
+  );
+};
+
+export default World_Layout;

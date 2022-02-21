@@ -2,6 +2,9 @@ node_modules/
 .cache/
 public/
 static/
+!static/css
+!static/img
+!static/js
 .firebase/
 .firebaserc
 firebase.json
