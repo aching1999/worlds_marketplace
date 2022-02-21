@@ -330,122 +330,87 @@ const World = (props) => {
 				</div>
 				<div className="item__details">
 				  <h1 className="item__title h3">WorldsWithin #{spacebud.id}</h1>
-				  <div className="item__cost">
-					<div className="status-stroke-green item__price">2.5 ETH</div>
-					<div className="status-stroke-black item__price">$4,429.87</div>
-					<div className="item__counter">10 in stock</div>
-				  </div>
-				  <div className="item__text">This NFT Card will give you Access to Special Airdrops. To learn more about UI8 please visit <a href="https://ui8.net" target="_blank">https://ui8.net</a></div>
+				  {isLoadingMarket ? (
+					 <div className="item__cost">
+						<img src={process.env.SITE_ROOT+"img/loader.gif"} alt="Loader" style={{maxWidth: '100px'}}/>
+					</div>	  
+				   ) : (
+				   	<div className="item__cost">
+						<div className="status-stroke-green item__price">{details.lastSale.lovelace || 0} ADA</div>
+						<div className="status-stroke-black item__price">{details.lastSale.usd || 0} USD</div>
+						<div className="item__counter">Last Sale</div>
+					</div>
+				   )
+				  }
+				  <div className="item__control">					
+					<div className="item__btns"><a className="button item__button js-popup-open" href="#popup-purchase" data-effect="mfp-zoom-in">Purchase now</a><a className="button-stroke item__button js-popup-open" href="#popup-bid" data-effect="mfp-zoom-in">Place a bid</a></div>
+					<div className="item__variants">Service fee <span className="item__percent">~ 2.4%</span></div>
+				  </div>				  
 				  <div className="item__tabs js-tabs">
-					<div className="item__nav"><a className="item__link js-tabs-link active" href="#">Info</a><a className="item__link js-tabs-link" href="#">Owners</a><a className="item__link js-tabs-link" href="#">History</a><a className="item__link js-tabs-link" href="#">Bids</a></div>
+					<div className="item__nav"><a className="item__link js-tabs-link active" href="#">Info</a><a className="item__link js-tabs-link" href="#">Owners</a>{/* <a className="item__link js-tabs-link" href="#">History</a><a className="item__link js-tabs-link" href="#">Bids</a> */}</div>
 					<div className="item__container">
 					  <div className="item__box js-tabs-item" style={{display: "block"}}>
 						<div className="item__users">
 						  <div className="item__user">
-							<div className="item__avatar"><img src={process.env.SITE_ROOT+"img/content/avatar-2.jpg"} alt="Avatar"/>
-							  <div className="item__reward"><img src={process.env.SITE_ROOT+"img/content/reward-1.svg"} alt="Reward"/></div>
-							</div>
+							<div className="item__avatar"><img src={process.env.SITE_ROOT+"img/icon-planet.png"} alt="Avatar"/></div>
 							<div className="item__description">
-							  <div className="item__position">Owner</div>
-							  <div className="item__name">Raquel Will</div>
+							  <div className="item__position">World Type</div>
+							  <div className="item__name">{spacebud.world_type}</div>
 							</div>
 						  </div>
 						  <div className="item__user">
-							<div className="item__avatar"><img src={process.env.SITE_ROOT+"img/content/avatar-1.jpg"} alt="Avatar"/></div>
+							<div className="item__avatar"><img src={process.env.SITE_ROOT+"img/icon-terrain.png"} alt="Avatar"/></div>
 							<div className="item__description">
-							  <div className="item__position">Creator</div>
-							  <div className="item__name">Selina Mayert</div>
+							  <div className="item__position">Terrain Trait &amp; color</div>
+							  <div className="item__name">{spacebud.terrain_trait} <span className="terrain_color" style={{backgroundColor: '#'+spacebud.terrain_color}} title={spacebud.terrain_color}>&nbsp;</span></div>
+							</div>
+						  </div>						  
+						  <div className="item__user">
+							<div className="item__avatar"><img src={process.env.SITE_ROOT+"img/icon-daylength.png"} alt="Avatar"/></div>
+							<div className="item__description">
+							  <div className="item__position">Year &amp; Day Length</div>
+							  <div className="item__name">{spacebud.year_length} and {spacebud.day_length}</div>
+							</div>
+						  </div>						  
+						  <div className="item__user">
+							<div className="item__avatar"><img src={process.env.SITE_ROOT+"img/icon-traits.png"} alt="Avatar"/></div>
+							<div className="item__description">
+							  <div className="item__position">Traits ({spacebud.gadgets.length})</div>
+							  <div className="item__name">{spacebud.gadgets.map((item, i) => (
+								   <span className="trait">{item}</span>
+							  ))}</div>
 							</div>
 						  </div>
 						</div>
 					  </div>
 					  <div className="item__box js-tabs-item">
 						<div className="item__users">
-						  <div className="item__user">
-							<div className="item__avatar"><img src={process.env.SITE_ROOT+"img/content/avatar-1.jpg"} alt="Avatar"/></div>
-							<div className="item__description">
-							  <div className="item__position">Owner</div>
-							  <div className="item__name">Cole Mayert</div>
-							</div>
-						  </div>
+						  {owner.length > 0 ? (
+							 owner.map((item, i) => (				   
+								 <div className="item__user owner" key={i}>
+									<div className="item__avatar"><img src={process.env.SITE_ROOT+"img/icon-owner.png"} alt="Avatar"/></div>
+									<div className="item__description">
+									  <div className="item__position">Owner</div>
+									  <div className="item__name owner">
+									  	<MiddleEllipsis>
+											<Link underline color="purple.600" 
+											    className="owner"
+												onClick={(e) => {
+												  if (owner) navigate(`${process.env.SITE_ROOT}profile?address=${item.address}`);
+												}}>
+												{item.address}
+											</Link>
+										</MiddleEllipsis>
+									  </div>
+									</div>
+								 </div>
+							 ))
+						   ) : (
+							  <img src={process.env.SITE_ROOT+"img/loader.gif"} alt="Loader" style={{maxWidth: '100px'}}/>			   
+						   )}
 						</div>
-					  </div>
-					  <div className="item__box js-tabs-item">
-						<div className="item__users">
-						  <div className="item__user">
-							<div className="item__avatar"><img src={process.env.SITE_ROOT+"img/content/avatar-2.jpg"} alt="Avatar"/>
-							  <div className="item__reward"><img src={process.env.SITE_ROOT+"img/content/reward-1.svg"} alt="Reward"/></div>
-							</div>
-							<div className="item__description">
-							  <div className="item__name">Raquel Will</div>
-							  <div className="item__action">Place a bid: <span className="item__money">1.46 ETH</span></div>
-							</div>
-							<div className="item__time">Jun 14 - 4:12 PM</div>
-						  </div>
-						  <div className="item__user">
-							<div className="item__avatar"><img src={process.env.SITE_ROOT+"img/content/avatar-6.jpg"} alt="Avatar"/>
-							  <div className="item__reward"><img src={process.env.SITE_ROOT+"img/content/reward-1.svg"} alt="Reward"/></div>
-							</div>
-							<div className="item__description">
-							  <div className="item__name">Cole Fahey</div>
-							  <div className="item__action">Put <span>Awesome work</span> on sale</div>
-							</div>
-							<div className="item__time">Jun 14 - 4:12 PM</div>
-						  </div>
-						  <div className="item__user">
-							<div className="item__avatar"><img src={process.env.SITE_ROOT+"img/content/avatar-7.jpg"} alt="Avatar"/>
-							  <div className="item__reward"><img src={process.env.SITE_ROOT+"img/content/reward-1.svg"} alt="Reward"/></div>
-							</div>
-							<div className="item__description">
-							  <div className="item__name">Adah Mitchell</div>
-							  <div className="item__action">Accepted <span>Raquel Will</span> ‘s bid</div>
-							</div>
-							<div className="item__time">Jun 14 - 4:12 PM</div>
-						  </div>
-						</div>
-					  </div>
-					  <div className="item__box js-tabs-item">
-						<div className="item__users">
-						  <div className="item__user">
-							<div className="item__avatar"><img src={process.env.SITE_ROOT+"img/content/avatar-2.jpg"} alt="Avatar"/>
-							  <div className="item__reward"><img src={process.env.SITE_ROOT+"img/content/reward-1.svg"} alt="Reward"/></div>
-							</div>
-							<div className="item__description">
-							  <div className="item__action">Highest bid: <span>1.46 ETH</span></div>
-							  <div className="item__name">Raquel Will</div>
-							</div>
-						  </div>
-						  <div className="item__user">
-							<div className="item__avatar"><img src={process.env.SITE_ROOT+"img/content/avatar-1.jpg"} alt="Avatar"/></div>
-							<div className="item__description">
-							  <div className="item__action">#2</div>
-							  <div className="item__name">Cole Fahey</div>
-							</div>
-						  </div>
-						  <div className="item__user">
-							<div className="item__avatar"><img src={process.env.SITE_ROOT+"img/content/avatar-8.jpg"} alt="Avatar"/></div>
-							<div className="item__description">
-							  <div className="item__action">#3</div>
-							  <div className="item__name">Selina Mayert</div>
-							</div>
-						  </div>
-						</div>
-					  </div>
+					  </div>					  
 					</div>
-				  </div>
-				  <div className="item__control">
-					<div className="item__head">
-					  <div className="item__avatar"><img src={process.env.SITE_ROOT+"img/content/avatar-4.jpg"} alt="Avatar"/></div>
-					  <div className="item__description">
-						<div className="item__info">Highest bid by <span>Kohaku Tora</span></div>
-						<div className="item__currency">
-						  <div className="item__price"><span>1.46</span> ETH</div>
-						  <div className="item__price">$2,764.89</div>
-						</div>
-					  </div>
-					</div>
-					<div className="item__btns"><a className="button item__button js-popup-open" href="#popup-purchase" data-effect="mfp-zoom-in">Purchase now</a><a className="button-stroke item__button js-popup-open" href="#popup-bid" data-effect="mfp-zoom-in">Place a bid</a></div>
-					<div className="item__variants">Service fee <span className="item__percent">1.5%</span> <span>2.563 ETH</span> <span>$4,540.62</span></div>
 				  </div>
 				</div>
 			  </div>

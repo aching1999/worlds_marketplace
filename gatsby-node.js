@@ -10,6 +10,7 @@ const getSpacebudz = () => { // TODO we actually don't want to use koios, it's t
 	const terrain_trait = metadata[id]["Terrain Trait"];
 	const terrain_color = metadata[id]["Terrain Color"];
 	const year_length = metadata[id]["Year Length"];
+	const day_length = metadata[id]["Day Length"];
     const image =
       "https://ipfs.blockfrost.dev/ipfs/" +
       metadata[id].image.split("ipfs://")[1];

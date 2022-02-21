@@ -16,18 +16,18 @@ export class Header extends Component {
 					  if (e.key === "Enter") {
 						window.scrollTo(0, 0);
 						if (e.target.value === "") return;
-						window.location = `/explore/?id=${e.target.value}`;						
+						window.location = `${process.env.SITE_ROOT}explore/?id=${e.target.value}`;						
 					  }
 					}}
 					onSearch={(e) => {
 					  window.scrollTo(0, 0);
 					  if (e === "") return;
-					  window.location = `/explore/?id=${e}`;
+					  window.location = `${process.env.SITE_ROOT}explore/?id=${e}`;
 					}}
 					onChange={(e) => {
 					  if (e.target.value) e.persist();
 					  if (e.target.value === "") {
-						window.location = `/explore/`;
+						window.location = `${process.env.SITE_ROOT}explore/`;
 						return;
 					  }
 					}}
