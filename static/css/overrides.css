@@ -1,0 +1,42 @@
+@charset "utf-8";
+/* overriding css */
+
+.card__bid {
+    color: #ffffff;
+    padding: 0 10px;
+    border-radius: 5px;
+}
+
+.apply_filter {
+	height: 35px;
+    font-size: 14px;
+    margin-top: -18px;
+    background: #3772FF;
+    box-shadow: 0 0 0 2px #3772ff inset;
+    color: #ffffff;
+    margin-right: 10px;
+}
+
+
+.vr_loader, 
+.iframe_vr {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+	text-align: center;
+	align-items: center;
+}
+
+.vr_loader img {
+	width: auto;
+	display: block;
+	margin: 0 auto;
+}
+
+.main__category.bid {
+    color: #45b26b;
+    text-align: center;
+	font-size: 24px;
+}
