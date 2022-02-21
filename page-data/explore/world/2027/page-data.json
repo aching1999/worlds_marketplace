@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-templates-world-js",
+    "path": "/explore/world/2027/",
+    "result": {"pageContext":{"spacebud":{"id":"2027","image":"https://ipfs.blockfrost.dev/ipfs/Qmc7XP6PpPMYVF7d9kDkVBJkZz9eVtPZsofLHTGDNi5eFh","type":"text/html","gadgets":["towers","Type_C"],"src":"ipfs://QmSua4s84BZ8kZvKvtDrF4tfz2yXqEomAaqxmzEHBcYXWH","world_type":"Inner World","terrain_trait":"canyon","terrain_color":"f9bb2b","year_length":"908 days"}}},
+    "staticQueryHashes": []}

@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-templates-world-js",
+    "path": "/explore/world/1930/",
+    "result": {"pageContext":{"spacebud":{"id":"1930","image":"https://ipfs.blockfrost.dev/ipfs/Qmc7XP6PpPMYVF7d9kDkVBJkZz9eVtPZsofLHTGDNi5eFh","type":"text/html","gadgets":["Constant rain","pyramids","Type_C"],"src":"ipfs://QmXk3MeVukHcaK9EhkxpwU5tN5AEnbMyAP8BdrkijDzHiT","world_type":"Outer World","terrain_trait":"hills","terrain_color":"191167","year_length":"29 days"}}},
+    "staticQueryHashes": []}

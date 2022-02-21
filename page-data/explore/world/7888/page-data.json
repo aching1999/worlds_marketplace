@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-templates-world-js",
+    "path": "/explore/world/7888/",
+    "result": {"pageContext":{"spacebud":{"id":"7888","image":"https://ipfs.blockfrost.dev/ipfs/Qmc7XP6PpPMYVF7d9kDkVBJkZz9eVtPZsofLHTGDNi5eFh","type":"text/html","gadgets":["Constant dust","cubes","Type_J"],"src":"ipfs://QmezjRo1jMAdxceJth4PYqYo7W54GmLShb7VdCbwHhXf1Q","world_type":"Inner World","terrain_trait":"canyon","terrain_color":"d7bc36","year_length":"568 days"}}},
+    "staticQueryHashes": []}

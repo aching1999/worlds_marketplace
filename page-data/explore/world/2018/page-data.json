@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-templates-world-js",
+    "path": "/explore/world/2018/",
+    "result": {"pageContext":{"spacebud":{"id":"2018","image":"https://ipfs.blockfrost.dev/ipfs/Qmc7XP6PpPMYVF7d9kDkVBJkZz9eVtPZsofLHTGDNi5eFh","type":"text/html","gadgets":["Seasonal Weather","pyramid_weird","Type_F"],"src":"ipfs://QmT1wgRkXj59oqchy3zDcihNzRvajGL8yGntUyprPx1NwZ","world_type":"Inner World","terrain_trait":"spikes","terrain_color":"4bc985","year_length":"693 days"}}},
+    "staticQueryHashes": []}

@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-templates-world-js",
+    "path": "/explore/world/2009/",
+    "result": {"pageContext":{"spacebud":{"id":"2009","image":"https://ipfs.blockfrost.dev/ipfs/Qmc7XP6PpPMYVF7d9kDkVBJkZz9eVtPZsofLHTGDNi5eFh","type":"text/html","gadgets":["Constant rain","face3d","Type_L"],"src":"ipfs://QmUn9RgXyzdSqNXfWLQHHeo7pwrXupoU3Eikzu6gG7Rup2","world_type":"Inner World","terrain_trait":"flat","terrain_color":"ac1f62","year_length":"103 days"}}},
+    "staticQueryHashes": []}

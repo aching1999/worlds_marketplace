@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-templates-world-js",
+    "path": "/explore/world/1973/",
+    "result": {"pageContext":{"spacebud":{"id":"1973","image":"https://ipfs.blockfrost.dev/ipfs/Qmc7XP6PpPMYVF7d9kDkVBJkZz9eVtPZsofLHTGDNi5eFh","type":"text/html","gadgets":["Constant dust","cylinders","Type_O"],"src":"ipfs://QmP1VqyWmY7NJrS671e9eUthNGeFqCVmWqbGNT9Thsidnz","world_type":"Outer World","terrain_trait":"flat","terrain_color":"0314da","year_length":"266 days"}}},
+    "staticQueryHashes": []}

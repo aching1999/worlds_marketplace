@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-templates-world-js",
+    "path": "/explore/world/443/",
+    "result": {"pageContext":{"spacebud":{"id":"443","image":"https://ipfs.blockfrost.dev/ipfs/Qmc7XP6PpPMYVF7d9kDkVBJkZz9eVtPZsofLHTGDNi5eFh","type":"text/html","gadgets":["Constant dust","cubes","Type_N"],"src":"ipfs://QmbCADP8HpHZoTqyqfieVozuEE6cP6geiVjRUMBsBdDAjg","world_type":"Outer World","terrain_trait":"canyon","terrain_color":"d9ce77","year_length":"337 days"}}},
+    "staticQueryHashes": []}

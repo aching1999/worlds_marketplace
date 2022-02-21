@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-templates-world-js",
+    "path": "/explore/world/10165/",
+    "result": {"pageContext":{"spacebud":{"id":"10165","image":"https://ipfs.blockfrost.dev/ipfs/Qmc7XP6PpPMYVF7d9kDkVBJkZz9eVtPZsofLHTGDNi5eFh","type":"text/html","gadgets":["Constant rain","mushrooms","Type_B"],"src":"ipfs://QmcmBdipePz9kPPEvhFkATxFfJX8AywupnBEa7R65duC9U","world_type":"Inner World","terrain_trait":"noise","terrain_color":"19983e","year_length":"831 days"}}},
+    "staticQueryHashes": []}

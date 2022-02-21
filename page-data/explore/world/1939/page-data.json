@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-templates-world-js",
+    "path": "/explore/world/1939/",
+    "result": {"pageContext":{"spacebud":{"id":"1939","image":"https://ipfs.blockfrost.dev/ipfs/Qmc7XP6PpPMYVF7d9kDkVBJkZz9eVtPZsofLHTGDNi5eFh","type":"text/html","gadgets":["Constant rain","torii","Type_G"],"src":"ipfs://QmSftEPmuwfNeeha3kf3cV1YHLvRUx8USvfrFCNCYuX4ds","world_type":"Outer World","terrain_trait":"flat","terrain_color":"1529da","year_length":"295 days"}}},
+    "staticQueryHashes": []}

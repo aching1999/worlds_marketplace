@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-templates-world-js",
+    "path": "/explore/world/2019/",
+    "result": {"pageContext":{"spacebud":{"id":"2019","image":"https://ipfs.blockfrost.dev/ipfs/Qmc7XP6PpPMYVF7d9kDkVBJkZz9eVtPZsofLHTGDNi5eFh","type":"text/html","gadgets":["torii","Type_J"],"src":"ipfs://Qmbw23Snm6PBEup1HBb2G6EzzhTM7W5CCJKMZLyAaquNgH","world_type":"Outer World","terrain_trait":"canyon","terrain_color":"562bb1","year_length":"155 days"}}},
+    "staticQueryHashes": []}

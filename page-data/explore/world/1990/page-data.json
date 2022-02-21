@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-templates-world-js",
+    "path": "/explore/world/1990/",
+    "result": {"pageContext":{"spacebud":{"id":"1990","image":"https://ipfs.blockfrost.dev/ipfs/Qmc7XP6PpPMYVF7d9kDkVBJkZz9eVtPZsofLHTGDNi5eFh","type":"text/html","gadgets":["cubes","Type_F"],"src":"ipfs://QmemWhsNXx5Jdc7YSEiALktCT7uNUtFhK7SAUeK24NaPQu","world_type":"Outer World","terrain_trait":"flat","terrain_color":"9b9e88","year_length":"72 days"}}},
+    "staticQueryHashes": []}

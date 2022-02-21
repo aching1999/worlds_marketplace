@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-templates-world-js",
+    "path": "/explore/world/5948/",
+    "result": {"pageContext":{"spacebud":{"id":"5948","image":"https://ipfs.blockfrost.dev/ipfs/Qmc7XP6PpPMYVF7d9kDkVBJkZz9eVtPZsofLHTGDNi5eFh","type":"text/html","gadgets":["Constant snow","towers","Type_C"],"src":"ipfs://QmaHkq3ftkcx89LsEHXqDrp7CFQtYCo7QfdXnmysJ2xadn","world_type":"Outer World","terrain_trait":"spikes","terrain_color":"dd19b2","year_length":"232 days"}}},
+    "staticQueryHashes": []}

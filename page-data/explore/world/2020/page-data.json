@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-templates-world-js",
+    "path": "/explore/world/2020/",
+    "result": {"pageContext":{"spacebud":{"id":"2020","image":"https://ipfs.blockfrost.dev/ipfs/Qmc7XP6PpPMYVF7d9kDkVBJkZz9eVtPZsofLHTGDNi5eFh","type":"text/html","gadgets":["Constant snow","cubes","Type_O"],"src":"ipfs://QmX7z7AmMDuK3WB1nxo95KDs9ws9Ae6jyBALft4gNAQbMq","world_type":"Inner World","terrain_trait":"hills","terrain_color":"ef7f03","year_length":"741 days"}}},
+    "staticQueryHashes": []}

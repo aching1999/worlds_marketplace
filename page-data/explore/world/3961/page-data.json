@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-templates-world-js",
+    "path": "/explore/world/3961/",
+    "result": {"pageContext":{"spacebud":{"id":"3961","image":"https://ipfs.blockfrost.dev/ipfs/Qmc7XP6PpPMYVF7d9kDkVBJkZz9eVtPZsofLHTGDNi5eFh","type":"text/html","gadgets":["cubes","Type_C"],"src":"ipfs://QmRvXAiSvGR1QWj3rppmqr3sbEVdHmAZm7jwo2z54ADvkk","world_type":"Outer World","terrain_trait":"spikes","terrain_color":"bc5916","year_length":"85 days"}}},
+    "staticQueryHashes": []}

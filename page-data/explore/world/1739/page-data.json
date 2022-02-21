@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-templates-world-js",
+    "path": "/explore/world/1739/",
+    "result": {"pageContext":{"spacebud":{"id":"1739","image":"https://ipfs.blockfrost.dev/ipfs/Qmc7XP6PpPMYVF7d9kDkVBJkZz9eVtPZsofLHTGDNi5eFh","type":"text/html","gadgets":["Seasonal Weather","face8d","Type_P"],"src":"ipfs://QmUfVeTXMy4imPY4vovXZqmbie3jDBeL7roFmmjR441DEq","world_type":"Outer World","terrain_trait":"hills","terrain_color":"09b63c","year_length":"387 days"}}},
+    "staticQueryHashes": []}

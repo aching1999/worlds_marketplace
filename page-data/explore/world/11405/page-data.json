@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-templates-world-js",
+    "path": "/explore/world/11405/",
+    "result": {"pageContext":{"spacebud":{"id":"11405","image":"https://ipfs.blockfrost.dev/ipfs/Qmc7XP6PpPMYVF7d9kDkVBJkZz9eVtPZsofLHTGDNi5eFh","type":"text/html","gadgets":["towers","Type_J"],"src":"ipfs://Qmbur3Wy8vEJoVTSXk6KoKYDZVquVontiRUCPzpBcLwp9v","world_type":"Inner World","terrain_trait":"canyon","terrain_color":"914876","year_length":"602 days"}}},
+    "staticQueryHashes": []}

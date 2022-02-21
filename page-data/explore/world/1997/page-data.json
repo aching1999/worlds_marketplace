@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-templates-world-js",
+    "path": "/explore/world/1997/",
+    "result": {"pageContext":{"spacebud":{"id":"1997","image":"https://ipfs.blockfrost.dev/ipfs/Qmc7XP6PpPMYVF7d9kDkVBJkZz9eVtPZsofLHTGDNi5eFh","type":"text/html","gadgets":["mushrooms","Type_C"],"src":"ipfs://QmSvzeU8ZtTpRdAn8yajhm3B2Xxs7fJdRuYj21uLQKv5QH","world_type":"Inner World","terrain_trait":"canyon","terrain_color":"04f5db","year_length":"571 days"}}},
+    "staticQueryHashes": []}

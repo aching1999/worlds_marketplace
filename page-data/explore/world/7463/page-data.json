@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-templates-world-js",
+    "path": "/explore/world/7463/",
+    "result": {"pageContext":{"spacebud":{"id":"7463","image":"https://ipfs.blockfrost.dev/ipfs/Qmc7XP6PpPMYVF7d9kDkVBJkZz9eVtPZsofLHTGDNi5eFh","type":"text/html","gadgets":["Seasonal Weather","cubes","Type_A"],"src":"ipfs://QmSn2kqDrLyReYg3VCSknwZ4LEiSUbBcgxnDr534vMb7QX","world_type":"Inner World","terrain_trait":"flat","terrain_color":"eeeb8b","year_length":"951 days"}}},
+    "staticQueryHashes": []}

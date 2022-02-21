@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-templates-world-js",
+    "path": "/explore/world/2022/",
+    "result": {"pageContext":{"spacebud":{"id":"2022","image":"https://ipfs.blockfrost.dev/ipfs/Qmc7XP6PpPMYVF7d9kDkVBJkZz9eVtPZsofLHTGDNi5eFh","type":"text/html","gadgets":["Constant snow","pyramids","Type_I"],"src":"ipfs://QmTYTpisnaCacxhX78zYtSKtcXWrscL64e1mqmrjwNNdPF","world_type":"Inner World","terrain_trait":"hills","terrain_color":"84d247","year_length":"77 days"}}},
+    "staticQueryHashes": []}
