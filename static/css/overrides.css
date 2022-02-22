@@ -126,6 +126,14 @@
 	cursor: pointer;
 }
 
+.user__code {
+	width: 100%;
+}
+
+.user__number {
+	width: 100%;
+}
+
 @media screen and (max-width: 420px) {
 	.iframe_vr,
 	.vr-height {
