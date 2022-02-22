@@ -9,7 +9,7 @@ export class Header extends Component {
 		  <header className="header js-header" data-id="#header">
 			<div className="header__center center"><a className="header__logo" href={process.env.SITE_ROOT}><img className="some-icon" src={process.env.SITE_ROOT+"img/logo.png"} alt="Worlds NFT" /><img className="some-icon-dark" src={process.env.SITE_ROOT+"img/logo.png"} alt="Worlds NFT" /></a>
 			  <div className="header__wrapper js-header-wrapper">
-				<nav className="header__nav"><a className="header__link" href={process.env.SITE_ROOT}>Discover</a><a className="header__link" href={process.env.SITE_ROOT}>How it works</a>{/* <a className="header__link" href="item.html">Create item</a><a className="header__link" href="profile.html">Profile</a>*/}</nav>		
+				<nav className="header__nav"><a className="header__link" href={process.env.SITE_ROOT+"explore"}>Discover</a><a className="header__link" href={process.env.SITE_ROOT}>How it works</a>{/* <a className="header__link" href="item.html">Create item</a><a className="header__link" href="profile.html">Profile</a>*/}</nav>		
 				<Search
 					param={""}
 					onKeyUp={(e) => {
