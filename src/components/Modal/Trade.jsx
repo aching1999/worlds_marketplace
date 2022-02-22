@@ -85,7 +85,7 @@ const TradeModal = React.forwardRef(
         <ModalOverlay />
         <ModalContent>
           <ModalHeader textAlign="center" mt="2">
-            {type == "BID" ? "Bid" : "Listing"}
+            {type == "BID" ? "Place a Bid" : "Listing"}
           </ModalHeader>
           <Box textAlign="center" mt="-2" color="GrayText">
             WorldsWithin #{budId}
@@ -120,7 +120,7 @@ const TradeModal = React.forwardRef(
                   setAda(v);
                 }}
                 rounded="3xl"
-                focusBorderColor="purple.500"
+                focusBorderColor="blue.500"
                 placeholder={type == "BID" ? "Bid amount" : "List price"}
                 customInput={Input}
               />
@@ -138,7 +138,7 @@ const TradeModal = React.forwardRef(
             </Button>
             <Button
               width="100px"
-              colorScheme="purple"
+              colorScheme="blue"
               isDisabled={
                 (isBrowser() &&
                   window.BigInt(toUnit(ada)) < window.BigInt(minPrice)) ||
@@ -168,7 +168,7 @@ const TradeModal = React.forwardRef(
                 onClose();
               }}
             >
-              {type == "BID" ? "Bid" : "List"}
+              {type == "BID" ? "Place a Bid" : "List"}
             </Button>
           </ModalFooter>
         </ModalContent>
@@ -208,7 +208,7 @@ export const PendingTransactionToast = (toast) => {
     position: "bottom-right",
     render: () => (
       <Box
-        background="purple.400"
+        background="blue.400"
         color="white"
         px={6}
         py={3}

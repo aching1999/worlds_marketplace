@@ -27,6 +27,16 @@
     bottom: 0;
 	text-align: center;
 	align-items: center;
+	
+}
+
+.vr_loader {
+	top: 100px;
+}
+
+.iframe_vr,
+.vr-height {
+	min-height: 640px;
 }
 
 .vr_loader img {
@@ -77,4 +87,55 @@
 
 .item__user.owner {
 	overflow-x: auto;
+}
+
+.item__cost {
+	margin-bottom: 7px;
+}
+
+.itemcontrol_group {
+    margin: 10px 0;
+    padding: 24px;
+    border-radius: 16px;
+    box-shadow: 0px 24px 24px -24px rgb(31 47 70 / 12%);
+    border: 1px solid #E6E8EC;
+}
+
+.itemcontrol_group button.chakra-button {
+	min-width: 150px;
+}
+
+.item__categories {
+	z-index: 99;
+}
+
+.item__title { 
+    font-size: 38px;
+}
+
+.section.main {
+	
+}
+
+.section.hot {
+	
+}
+
+.card__link,
+.card__button {
+	cursor: pointer;
+}
+
+@media screen and (max-width: 420px) {
+	.iframe_vr,
+	.vr-height {
+		min-height: 280px;
+	}
+}
+
+@media screen and (max-width: 767px) {
+	.iframe_vr,
+	.vr-height {
+		min-height: 420px;
+	}
 }
