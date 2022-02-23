@@ -27,6 +27,16 @@
     bottom: 0;
 	text-align: center;
 	align-items: center;
+	
+}
+
+.vr_loader {
+	top: 100px;
+}
+
+.iframe_vr,
+.vr-height {
+	min-height: 640px;
 }
 
 .vr_loader img {
@@ -39,4 +49,101 @@
     color: #45b26b;
     text-align: center;
 	font-size: 24px;
+}
+
+.terrain_color {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+    margin: 2px 0 0 5px;
+}
+
+.trait {
+    padding: 2px 6px;
+    margin: 0 5px 5px 0;
+    border-radius: 5px;
+    border: 1px solid rgba(0,0,0,0.15);
+    box-shadow: 3px 3px 3px rgb(0 0 0 / 10%);
+	white-space: nowrap;
+}
+
+.item__control {
+    margin: 0;
+    padding: 0;
+    box-shadow: none;
+    border: none;
+}
+
+.item__btns {
+	margin: 0;
+}
+
+.item__variants {
+	margin: 10px 0 31px 0;
+    align-items: center;
+    text-align: center;
+}
+
+.item__user.owner {
+	overflow-x: auto;
+}
+
+.item__cost {
+	margin-bottom: 7px;
+}
+
+.itemcontrol_group {
+    margin: 10px 0;
+    padding: 24px;
+    border-radius: 16px;
+    box-shadow: 0px 24px 24px -24px rgb(31 47 70 / 12%);
+    border: 1px solid #E6E8EC;
+}
+
+.itemcontrol_group button.chakra-button {
+	min-width: 150px;
+}
+
+.item__categories {
+	z-index: 99;
+}
+
+.item__title { 
+    font-size: 38px;
+}
+
+.section.main {
+	
+}
+
+.section.hot {
+	
+}
+
+.card__link,
+.card__button {
+	cursor: pointer;
+}
+
+.user__code {
+	width: 100%;
+}
+
+.user__number {
+	width: 100%;
+}
+
+@media screen and (max-width: 420px) {
+	.iframe_vr,
+	.vr-height {
+		min-height: 280px;
+	}
+}
+
+@media screen and (max-width: 767px) {
+	.iframe_vr,
+	.vr-height {
+		min-height: 420px;
+	}
 }
