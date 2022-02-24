@@ -312,15 +312,51 @@ const World = (props) => {
 				   ) : (
 				   	<>
 						<div className="item__cost">
-							<div className="status-stroke-green item__price">{details.lastSale.lovelace || 0} ADA</div>
-							<div className="status-stroke-black item__price">{details.lastSale.usd || 0} USD</div>
+							<div className="status-stroke-green item__price">
+								<UnitDisplay
+									  showQuantity={!Boolean(details.lastSale.lovelace)}
+									  fontSize={16}
+									  color="#45B26B"
+									  quantity={details.lastSale.lovelace || 0}
+									  symbol="ADA"
+									  decimals={6}
+									/>
+							</div>
+							<div className="status-stroke-black item__price">
+								<UnitDisplay
+									  showQuantity={!Boolean(details.lastSale.usd)}
+									  fontSize={16}
+									  color="#777E90"
+									  quantity={details.lastSale.usd || 0}
+									  symbol="USD"
+									  decimals={2}
+									/>
+							</div>
 							<div className="item__counter">Last Sale</div>
 						</div>
 						{details.offer.owner ? (
 						  <>
 							<div className="item__cost">
-								<div className="status-stroke-green item__price">{details.bid.lovelace || 0} ADA</div>
-								<div className="status-stroke-black item__price">{details.bid.usd || 0} USD</div>
+								<div className="status-stroke-green item__price">
+									<UnitDisplay
+									  showQuantity={!Boolean(details.bid.lovelace)}
+									  fontSize={16}
+									  color="#45B26B"
+									  quantity={details.bid.lovelace || 0}
+									  symbol="ADA"
+									  decimals={6}
+									/>
+								</div>
+								<div className="status-stroke-black item__price">
+									<UnitDisplay
+									  showQuantity={!Boolean(details.bid.usd)}
+									  fontSize={16}
+									  color="#777E90"
+									  quantity={details.bid.usd || 0}
+									  symbol="USD"
+									  decimals={2}
+									/>
+								</div>
 								<div className="item__counter">Sell Now Price</div>
 							</div>
 							<div className="itemcontrol_group">
@@ -464,8 +500,26 @@ const World = (props) => {
 						  <>
 						   <div className="itemcontrol_group">
 							<div className="item__cost">
-								<div className="status-stroke-green item__price">{details.offer.lovelace || 0} ADA</div>
-								<div className="status-stroke-black item__price">{details.offer.usd || 0} USD</div>
+								<div className="status-stroke-green item__price">
+									<UnitDisplay
+									  showQuantity={!Boolean(details.offer.lovelace)}
+									  fontSize={16}
+									  color="#45B26B"
+									  quantity={details.offer.lovelace || 0}
+									  symbol="ADA"
+									  decimals={6}
+									/>
+								</div>
+								<div className="status-stroke-black item__price">
+									<UnitDisplay
+									  showQuantity={!Boolean(details.offer.usd)}
+									  fontSize={16}
+									  color="#777E90"
+									  quantity={details.offer.usd || 0}
+									  symbol="USD"
+									  decimals={2}
+									/>
+								</div>
 								<div className="item__counter">Purchase Price</div>
 							</div>							
 							<Tooltip 
@@ -512,8 +566,26 @@ const World = (props) => {
 						   </div>
 						   <div className="itemcontrol_group">
 							<div className="item__cost">
-								<div className="status-stroke-green item__price">{details.bid.lovelace || 0} ADA</div>
-								<div className="status-stroke-black item__price">{details.bid.usd || 0} USD</div>
+								<div className="status-stroke-green item__price">
+									<UnitDisplay
+									  showQuantity={!Boolean(details.bid.lovelace)}
+									  fontSize={16}
+									  color="#45B26B"
+									  quantity={details.bid.lovelace || 0}
+									  symbol="ADA"
+									  decimals={6}
+									/>
+								</div>
+								<div className="status-stroke-black item__price">
+									<UnitDisplay
+									  showQuantity={!Boolean(details.bid.usd)}
+									  fontSize={16}
+									  color="#777E90"
+									  quantity={details.bid.usd || 0}
+									  symbol="USD"
+									  decimals={2}
+									/>
+								</div>
 								<div className="item__counter">Bid Price</div>
 							</div>
 							<ButtonGroup size="md" isAttached variant="outline">
