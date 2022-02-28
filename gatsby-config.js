@@ -3,7 +3,7 @@ require("dotenv").config({
 })
 
 module.exports = {
-  pathPrefix: "/worlds_marketplace",	 
+  pathPrefix: "/",	 
   plugins: [
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
