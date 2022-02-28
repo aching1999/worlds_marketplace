@@ -153,7 +153,7 @@ const Profile = (props) => {
     try {
       const ownedAmount = amount
         .filter((am) => am.unit.startsWith(POLICY))
-        .map((am) => parseInt(fromHex(am.unit.slice(56)).split("SpaceBud")[1]));
+        .map((am) => parseInt(fromHex(am.unit.slice(56)).split("WorldsWithin")[1]));
       const owned = ownedAmount.map((id) => {
         const bidPrice = bids.bids.find((bid) => bid.budId == id);
         return {
