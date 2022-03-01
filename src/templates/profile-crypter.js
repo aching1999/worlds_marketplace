@@ -52,7 +52,7 @@ const Cards = (props) => {
    let start_index = 0;
    let end_index = props.filtered.length - 1;
    for (var i = start_index; i <= end_index; i++) {
-	    let world_nft = props.filtered[i];
+	    let world_nft = props.filtered[i];		
 		if(world_nft) {
 			if(world_nft.id) {
 				card_elems.push(<Card world={world_nft} key={i} />);
@@ -149,15 +149,15 @@ const Profile = (props) => {
           listingPrice: listingPrice ? listingPrice.offer.amount : undefined,
         };
       });
-
-    try {
-      const ownedAmount = amount
-        .filter((am) => am.unit.startsWith(POLICY))
-        .map((am) => parseInt(fromHex(am.unit.slice(56)).split("WorldsWithin")[1]));
-      const owned = ownedAmount.map((id) => {
+	
+    try {		
+      const ownedAmount = amount.filter((am) => am.unit.startsWith(POLICY)).map((am) => 	
+			parseInt(fromHex(am.unit.slice(56)).split("WorldsWithin")[1])
+	  );
+      const owned = ownedAmount.map((id) => {		
         const bidPrice = bids.bids.find((bid) => bid.budId == id);
         return {
-          ...spacebudz[id],
+          ...spacebudz[id-1],
           bidPrice: bidPrice ? bidPrice.bid.amount : undefined,
         };
       });
