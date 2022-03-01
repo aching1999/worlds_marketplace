@@ -31,11 +31,7 @@ const NotFoundPage = () => {
       <title>Not found</title>
       <h1 style={headingStyles}>Page not found</h1>
       <p style={paragraphStyles}>
-        Sorry{" "}
-        <span role="img" aria-label="Pensive emoji">
-          😔
-        </span>{" "}
-        we couldn’t find what you were looking for.
+        <img src="https://worldswithin.io/images/community.png"></img>
         <br />
         {process.env.NODE_ENV === "development" ? (
           <>

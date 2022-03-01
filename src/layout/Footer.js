@@ -35,7 +35,7 @@ export class Footer extends Component {
 					  </svg>
 					</div>
 					<div className="footer__body">
-					  <div className="footer__menu"><a className="footer__link" href={process.env.SITE_ROOT}>FAQ</a></div>
+					  <div className="footer__menu"><a className="footer__link" href={process.env.SITE_ROOT+"FAQ"}>FAQ</a></div>
 					</div>
 				  </div>
 				</div>
