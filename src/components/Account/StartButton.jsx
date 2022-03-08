@@ -75,10 +75,27 @@ if (
 
 const addressToBech32 = async () => {
   await Loader.load();
-  const address = (await window.cardano.selectedWallet.getUsedAddresses())[0];
-  return Loader.Cardano.Address.from_bytes(
-    Buffer.from(address, "hex")
-  ).to_bech32();
+  let address = null;
+  let address_arr = null;
+  
+  address_arr = (await window.cardano.selectedWallet.getUsedAddresses());  
+  if(address_arr.length > 0)
+   	address = address_arr[0];
+  else {
+  	// const u_address_arr = (await window.cardano.selectedWallet.getUnusedAddresses());
+	// console.log("u_address_arr");
+	// console.log(u_address_arr);
+  	address = (await window.cardano.selectedWallet.getChangeAddress());	
+  }
+  
+  if(address) {
+  	console.log("address");
+  	console.log(address);
+	  return Loader.Cardano.Address.from_bytes(
+		Buffer.from(address, "hex")
+	  ).to_bech32();
+  } else
+  	return null;
 };
 const StartButton = (props) => {
   const matches = useBreakpoint();
