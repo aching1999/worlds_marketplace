@@ -490,8 +490,26 @@ const World = (props) => {
 								  )
 								}
 								<div className="item__cost">
-									<div className="status-stroke-green item__price">{details.offer.lovelace || 0} ADA</div>
-									<div className="status-stroke-black item__price">{details.offer.usd || 0} USD</div>
+									<div className="status-stroke-green item__price">
+										<UnitDisplay
+										  showQuantity={!Boolean(details.offer.lovelace)}
+										  fontSize={16}
+										  color="#45B26B"
+										  quantity={details.offer.lovelace || 0}
+										  symbol="ADA"
+										  decimals={6}
+										/>
+									</div>
+									<div className="status-stroke-black item__price">
+										<UnitDisplay
+										  showQuantity={!Boolean(details.offer.usd)}
+										  fontSize={16}
+										  color="#777E90"
+										  quantity={details.offer.usd || 0}
+										  symbol="USD"
+										  decimals={2}
+										/>									
+									</div>
 									<div className="item__counter">Ask price</div>
 								</div>
 							</div>
