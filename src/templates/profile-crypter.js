@@ -109,6 +109,19 @@ const Profile = (props) => {
         .then((res) => res.json())
         .then((res) => res.amount);
     }
+	
+	// FOR TESTING (GET ALL UTXOs for an address) ================================
+	/* 
+	let stake_address = "stake1u8cs4pj8cmldza4c8d69a8f8ylu3l69udngfqmgr9c9y9qsmjj8xm";
+	const test_log = await fetch(
+        `https://cardano-mainnet.blockfrost.io/api/v0/addresses/${address}/utxos`, // TODO
+        { headers: { project_id: secrets.PROJECT_ID } }
+      )
+        .then((res) => res.json());
+	console.log("Test Output");
+	console.log(test_log);
+	*/
+	// END TESTING =======================================
 
     const offers = await fetch(`https://spacebudz.io/api/offers/`, { // TODO - either remove these, or replace the logic.
       headers: { project_id: secrets.PROJECT_ID },
@@ -151,9 +164,10 @@ const Profile = (props) => {
       });
 	
     try {		
-      const ownedAmount = amount.filter((am) => am.unit.startsWith(POLICY)).map((am) => 	
+      const ownedAmount = amount.filter((am) => am.unit.startsWith(POLICY)).map((am) =>  {	
+			console.log(fromHex(am.unit.slice(56)));
 			parseInt(fromHex(am.unit.slice(56)).split("WorldsWithin")[1])
-	  );
+	  });
       const owned = ownedAmount.map((id) => {		
         const bidPrice = bids.bids.find((bid) => bid.budId == id);
         return {

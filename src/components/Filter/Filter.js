@@ -2,7 +2,11 @@ export const setFilter = async (array, filters) => {
   let filtered = [...array];
 
   if (filters.id || filters.id === 0) {
+	console.log("filtered");
+	console.log(filtered);
+	console.log("finding from filtered: ["+filters.id+"]..., result is....")  
     let result = filtered.find((bud) => (bud ? bud.id : 0) === filters.id);
+	console.log(result);
     filtered = result ? [result] : [];
   }
 

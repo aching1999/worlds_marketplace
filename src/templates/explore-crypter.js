@@ -136,11 +136,18 @@ const ExploreCrypter = ({ pageContext: { spacebudz, initialOrder }, location }) 
       f.order_id = order_id;
       f.order_price = order_price;
       f.on_sale = Boolean(on_sale);
+	 
+	  //console.log("filtering");
+	  //console.log(f);
+	  //console.log("filtering current");
+      //console.log(fullList.current);
 	  
-	  console.log("filtering");
-	  console.log(f);
-      
+	  
 	  const filtered = await setFilter(fullList.current, f);
+	  
+	  console.log("filtered");
+	  console.log(filtered);
+	  
       setArray(null);
 	  setloadUntilIndex(50);
       setTimeout(() => setArray(filtered));
@@ -163,14 +170,27 @@ const ExploreCrypter = ({ pageContext: { spacebudz, initialOrder }, location }) 
     });*/
 	//console.log("initial order");
 	//console.log(initialOrder);
-    //console.log(fullList);
-	fullList.current = initialOrder.map((id) => spacebudz[id]);
+    	
+	//console.log("fetchData, full below");
+	//console.log(spacebudz);
+	
+	//fullList.current = initialOrder.map((id) => spacebudz[id]);
+	fullList.current = initialOrder.map((id) => spacebudz.find(function(element){
+    	return id_equals(element, id);
+	}));
+	
+	//console.log("fullList");
+	//console.log(fullList);
 	
     filterInterval.current = setInterval(() => {
       applySearch();
     });
   };
-
+  
+  function id_equals(element, order_id) {
+	  return parseInt(element.id) === parseInt(order_id);
+  }
+  
   React.useEffect(() => { 
 	const script = document.createElement("script");
 	script.src = process.env.SITE_ROOT+"js/app.js";
